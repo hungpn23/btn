@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description }}</p>
+    <h3>{{ product.price }} VND</h3>
+    <img src="{{ url_for('static', filename=product.image) }}"  alt="{{ product.name }}">
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chu</title>
+</head>
+<body>
+    <h1>Hello world!</h1>
+
+    <ul>
+        <li><a href="{{ url_for('get_products') }}">Tat ca san pham</a></li>
+        {% for c in categories %}
+        <li><a href="{{ url_for('get_products', category_id=c.id) }}">{{ c.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

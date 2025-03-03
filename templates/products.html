@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>San pham</title>
+  </head>
+  <body>
+    <h1>Danh muc san pham</h1>
+
+    <form>
+      <input type="text" name="kw" placeholder="nhap tu khoa" />
+      <input type="number" name="from_price" placeholder="nhap gia toi thieu" />
+      <input type="number" name="to_price" placeholder="nhap gia toi da" />
+      <input type="text" name="page" placeholder="nhap trang muon tim" />
+      <input type="submit" />
+    </form>
+
+    <table border="1">
+      <tr>
+        <th></th>
+        <th>Ma san pham</th>
+        <th>Ten san pham</th>
+        <th>Mo ta</th>
+        <th>Gia ban</th>
+        <th>Danh muc</th>
+      </tr>
+
+      {% for p in products %}
+      <tr>
+        <td>
+          <a href="{{ url_for('product_detail', product_id=p.id) }}">
+            <img
+              src="{{ url_for('static', filename=p.image) }}"
+              width="120"
+              height="120"
+              alt="{{ p.name }}"
+            />
+          </a>
+        </td>
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.description }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.category.name }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

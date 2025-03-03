@@ -1,0 +1,17 @@
+name: bai_tap_nhom
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: btn_mysql
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '33061:3306'
+    volumes:
+      - btn_mysql:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  btn_mysql:
